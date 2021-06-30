@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    proxy:
+        image: likesistemas/nginx-reverse:latest
+        build: 
+            context: .
+        environment:
+            - BACKEND_SERVER=https\:\/\/git-codecommit.us-east-1.amazonaws.com\/v1\/repos\/
+        ports:
+            - 8080:80

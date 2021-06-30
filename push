@@ -1,0 +1,5 @@
+#!/bin/sh
+docker-compose build
+aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/t4d7o4v4
+docker tag likesistemas/nginx-reverse:latest public.ecr.aws/t4d7o4v4/likesistemas/nginx-reverse:latest
+docker push public.ecr.aws/t4d7o4v4/likesistemas/nginx-reverse:latest
