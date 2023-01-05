@@ -6,6 +6,7 @@ services:
         build: 
             context: .
         environment:
-            - BACKEND_SERVER=https\:\/\/git-codecommit.us-east-1.amazonaws.com\/v1\/repos\/
+            - BACKEND_SERVER=${BACKEND_SERVER:-https://eichefe.com.br/}
+            - SEND_HOST=${SEND_HOST:-""}
         ports:
-            - 8080:80
+            - ${PORT:-8080}:80

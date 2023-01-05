@@ -1,12 +1,8 @@
 #!/bin/sh
+echo "proxy_pass ${BACKEND_SERVER};" >> ${CONFIG_PROXY}
 
-set -e
+if [ "${SEND_HOST}" = "true" ]; then
+    echo "proxy_set_header Host \$host;" >> ${CONFIG_PROXY}
+fi
 
-nginx_config_file=/etc/nginx/server.conf
-
-sed -i -e "s/\$url_proxy/${BACKEND_SERVER}/" ${CONFIG_DEFAULT}
-cat ${CONFIG_DEFAULT}
-
-exec nginx -g "daemon off;"
-
-exec "$@"
+cat $CONFIG_PROXY;
