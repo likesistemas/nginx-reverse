@@ -1,3 +1,8 @@
 #!/bin/sh
-sed -i -e "s/\$url_proxy/${BACKEND_SERVER}/" ${CONFIG_DEFAULT}
-cat ${CONFIG_DEFAULT}
+echo "proxy_pass ${BACKEND_SERVER};" >> ${CONFIG_PROXY}
+
+if [ "${SEND_HOST}" = "true" ]; then
+    echo "proxy_set_header Host \$host;" >> ${CONFIG_PROXY}
+fi
+
+cat $CONFIG_PROXY;

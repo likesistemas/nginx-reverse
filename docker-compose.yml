@@ -6,6 +6,7 @@ services:
         build: 
             context: .
         environment:
-            - BACKEND_SERVER=${BACKEND_SERVER:-https\:\/\/eichefe.com.br\/}
+            - BACKEND_SERVER=${BACKEND_SERVER:-https://eichefe.com.br/}
+            - SEND_HOST=${SEND_HOST:-""}
         ports:
             - ${PORT:-8080}:80
