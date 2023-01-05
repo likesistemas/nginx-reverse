@@ -5,5 +5,5 @@ ADD default.conf ${CONFIG_DEFAULT}
 
 EXPOSE 80
 
-ADD entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint.sh /docker-entrypoint.d/01-setup-url-proxy.sh
+RUN chmod +x /docker-entrypoint.d/01-setup-url-proxy.sh
