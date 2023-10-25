@@ -18,9 +18,9 @@ services:
     proxy:
         image: likesistemas/nginx-reverse:latest
         environment:
-            - BACKEND_SERVER=https\:\/\/linktr.ee\/nobisdesenvolvimento
-            - VIRTUAL_HOST=nobisdesenvolvimento.com.br
-            - LETSENCRYPT_HOST=nobisdesenvolvimento.com.br
+            - BACKEND_SERVER=https://likesistemas.com.br
+            - VIRTUAL_HOST=tdta.com.br
+            - LETSENCRYPT_HOST=tdta.com.br
         networks:
             - nginx-proxy
 
